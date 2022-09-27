@@ -1,0 +1,50 @@
+=========================
+Installation
+=========================
+
+1) AFL
+----------------
+
+I have prepared a Linux based virtual machine 
+and cloned the repository. ()
+
+Following that, I compiled the sources to the 
+/usr/google.afl/AFL location and installed it via make.
+
+Since the original repository didn't have an 
+actual example project that could have been tested,
+I prepared a small scale project that could be 
+used for finding edge-cases that could fail the runtime.
+
+Source code could be found at src/SmallExample_Cpp.
+An image of the result could be found at docs/task0 
+and the AFL result are with the source code (our_dir).
+
+2) KLEE
+---------------
+
+I have installed the software bundle by pulling the official 
+docker image (klee/klee:latest) mentioned at the project's website.
+
+This project has a well defined tutorial section, so I have ran 
+all the steps mentioned and tried the application that way.
+
+Because example source codes are packaged within the official container, 
+I have not included them in this repository nor created any new projects.
+
+
+3) Summary
+---------------
+
+After playing with both tools, I have concluded, that google's AFL is better 
+suited for security and finds most of the failing edge-cases.
+It uses an instrumentation-guided genetic algorithm based brute-force fuzzing method.
+This tool could be used to instrument source code or if sources are not available, it
+could instrument binary-only apps with qemu_mode (not tested within this exercise).
+It is integrated with gcc, clang and could be used to complie in llvm mode as well
+for better performance.
+
+Meanwhile KLEE, is a bit more sophisticated approach. It could be used on compiled bytecode only.
+It uses the same clang llvm stack as the above mentioned approach, but it does not need the fully compiled binary.
+As per my testing, It is not just find faults. The program provides a good evidence for all execution paths, 
+that could be used as input for test cases.
