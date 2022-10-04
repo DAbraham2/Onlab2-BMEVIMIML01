@@ -2,7 +2,7 @@
 
 int main() {
     std::string str;
-    std::cout << "enter input string";
+    std::cout << "enter input string" << std::endl;
 
     std::getline(std::cin, str);
 
