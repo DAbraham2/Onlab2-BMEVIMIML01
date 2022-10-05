@@ -104,5 +104,10 @@ void Specs::set_fuel(int f) {
 }
 
 bool Specs::isNumber(std::string str) {
-    return false;
+    for (int i = 0; i < str.length(); i++) {
+        if (std::isdigit(str[i]) == 0) {
+            return false;
+        }
+    }
+    return true;
 }
